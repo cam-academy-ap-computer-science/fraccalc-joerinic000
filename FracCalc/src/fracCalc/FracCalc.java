@@ -1,11 +1,17 @@
-// Asks for 2 inputs in form of strings
-// Then asks for the type of operation in form of x, /, -, +
-// Calls produceAnswer and inputs those strings and the operation
-// Interprets the operation in the string using if statements
+// In the end, it will all be in a while loop
+// Takes the input of one string
+// Checks if a string == quit
+// Calls produceAnswer and inputs the string
+// Separates the fractions at the operator
 // Finds the whole number in first fraction (if there is one) using a while loop
 // Determined if it is the whole number by the next char(continues if it is a number)
 // Puts whole number into it's own string called whole number(if none, whole number = 0)
-// Finds numerator of fraction
+// Finds numerator of fraction by looking for the slash
+// Sets numerator to its own string
+// Skips the slash and puts until the next space
+// Checks for the operator
+// Repeats previous process for second fraction except for operation
+
 package fracCalc;
 import java.util.*;
 
@@ -14,10 +20,11 @@ public class FracCalc {
     public static void main(String[] args) {
         // TODO: Read the input from the user and call produceAnswer with an equation
     		Scanner userInput = new Scanner(System.in);
-    		System.out.print("Give me a number: ");
+    		System.out.print("What is your equation? ");
     		String s = userInput.next();
-    		int i = s;
-    		
+    		if (s != "quit") {
+    			produceAnswer(s);
+    		}
     }
     
     // ** IMPORTANT ** DO NOT DELETE THIS FUNCTION.  This function will be used to test your code
@@ -30,7 +37,11 @@ public class FracCalc {
     //      e.g. return ==> "1_1/4"
     public static String produceAnswer(String input) { 
         // TODO: Implement this function to produce the solution to the input
-        
+    	if (input.indexOf(" * ") != -1) {
+    		int a = input.indexOf(" * ");
+    		String fOne = input.substring(0, a);
+    		String fTwo = input.substring(0, a);
+    	}
         return "";
     }
 
