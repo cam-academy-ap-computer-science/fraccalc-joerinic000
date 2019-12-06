@@ -20,12 +20,20 @@ public class FracCalc {
     public static void main(String[] args) {
         // TODO: Read the input from the user and call produceAnswer with an equation
     		Scanner userInput = new Scanner(System.in);
-    		System.out.print("What is your equation? ");
-    		String s = userInput.next();
-    		if (s != "quit") {
-    			produceAnswer(s);
+    		String s = "";
+    		String quit = "quit";
+    		while (s != quit) {
+    			System.out.print("What is your equation? ");
+    			s = userInput.next();
+    			if (s.equals("quit")) {
+    			
+    			}
+    			else {
+    				produceAnswer(s);
+    			}
+    			}
     		}
-    }
+
     
     // ** IMPORTANT ** DO NOT DELETE THIS FUNCTION.  This function will be used to test your code
     // This function takes a String 'input' and produces the result
@@ -37,11 +45,50 @@ public class FracCalc {
     //      e.g. return ==> "1_1/4"
     public static String produceAnswer(String input) { 
         // TODO: Implement this function to produce the solution to the input
-    	if (input.indexOf(" * ") != -1) {
-    		int a = input.indexOf(" * ");
-    		String fOne = input.substring(0, a);
-    		String fTwo = input.substring(0, a);
-    	}
+    	    int a = input.indexOf(" * ");
+    		int b = input.indexOf(" / ");
+    		int c = input.indexOf(" + ");
+    		int d = input.indexOf(" - ");
+
+    		if (a != -1) {
+    			System.out.println("This has run");
+    			String fOne = input.substring(0, a);
+    			String fTwo = input.substring(a + 2, input.length());
+    			System.out.print(fOne);
+    			System.out.print(fTwo);
+    			System.out.println("This has completed");
+    		}
+    		
+    		else if (b != -1) {
+    			System.out.println("This has run");
+    			String fOne = input.substring(0, b);
+    			String fTwo = input.substring(b + 2, input.length());
+    			System.out.print(fOne);
+    			System.out.print(fTwo);
+    			System.out.println("This has completed");
+    		}
+    		
+    		else if (c != -1) {
+    			System.out.println("This has run");
+    			String fOne = input.substring(0, c);
+    			String fTwo = input.substring(c + 2, input.length());
+    			System.out.print(fOne);
+    			System.out.print(fTwo);
+    			System.out.println("This has completed");
+    		}
+    		
+    		else if (d != -1) {
+    			System.out.println("This has run");
+    			String fOne = input.substring(0, d);
+    			String fTwo = input.substring(d + 2, input.length());
+    			System.out.print(fOne);
+    			System.out.print(fTwo);
+    			System.out.println("This has completed");
+    		}
+    		
+    		else {
+    			System.out.println("None ran");
+    		}
         return "";
     }
 
