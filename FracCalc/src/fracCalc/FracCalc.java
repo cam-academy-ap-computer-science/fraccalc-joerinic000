@@ -59,6 +59,12 @@ public class FracCalc {
     	int k;
     	int l;
     	int m;
+    	int w1 = 0;
+    	int n1 = 0;
+    	int d1 = 1;
+    	int w2 = 0;
+    	int n2 = 0;
+    	int d2 = 1;
     	String wnd = "";
     	String whole = "0";
     	String wholeOne = "0";
@@ -102,6 +108,14 @@ public class FracCalc {
 			if (j == -1) {
 				wholeOne = fOne;
 			}
+			w1 = Integer.parseInt(wholeOne);
+			n1 = Integer.parseInt(numeratorOne);
+			d1 = Integer.parseInt(denominatorOne);
+			
+			w2 = Integer.parseInt(whole);
+			n2 = Integer.parseInt(numerator);
+			d2 = Integer.parseInt(denominator);
+			
 			wnd += "whole:";
 			wnd += whole;
 			wnd += " numerator:";
@@ -143,6 +157,14 @@ public class FracCalc {
 			if (j == -1) {
 				wholeOne = fOne;
 			}
+			w1 = Integer.parseInt(wholeOne);
+			n1 = Integer.parseInt(numeratorOne);
+			d1 = Integer.parseInt(denominatorOne);
+			
+			w2 = Integer.parseInt(whole);
+			n2 = Integer.parseInt(numerator);
+			d2 = Integer.parseInt(denominator);
+			
 			wnd += "whole:";
 			wnd += whole;
 			wnd += " numerator:";
@@ -184,6 +206,14 @@ public class FracCalc {
 			if (j == -1) {
 				wholeOne = fOne;
 			}
+			w1 = Integer.parseInt(wholeOne);
+			n1 = Integer.parseInt(numeratorOne);
+			d1 = Integer.parseInt(denominatorOne);
+			
+			w2 = Integer.parseInt(whole);
+			n2 = Integer.parseInt(numerator);
+			d2 = Integer.parseInt(denominator);
+			
 			wnd += "whole:";
 			wnd += whole;
 			wnd += " numerator:";
@@ -225,6 +255,14 @@ public class FracCalc {
 			if (j == -1) {
 				wholeOne = fOne;
 			}
+			w1 = Integer.parseInt(wholeOne);
+			n1 = Integer.parseInt(numeratorOne);
+			d1 = Integer.parseInt(denominatorOne);
+			
+			w2 = Integer.parseInt(whole);
+			n2 = Integer.parseInt(numerator);
+			d2 = Integer.parseInt(denominator);
+			
 			wnd += "whole:";
 			wnd += whole;
 			wnd += " numerator:";
@@ -240,41 +278,7 @@ public class FracCalc {
 }
 
     // TODO: Fill in the space below with any helper methods that you think you will need
-    public static int fONE (String fOne) {
-		e = fOne.indexOf("_");
-		if (e != -1) {
-			whole = fOne.substring(0, e);
-		}
-		g = fOne.length();
-		f = fOne.indexOf("/");
-		if (f != -1) {
-			numerator = fOne.substring(e + 1, f);
-			denominator = fOne.substring(f + 1, g);
-		}
-		if (f == -1) {
-			whole = fOne;
-		}
-		h = fOne.indexOf("_");
-		if (h != -1) {
-			wholeOne = fOne.substring(0, e);
-		}
-		i = fOne.length();
-		j = fOne.indexOf("/");
-		if (j != -1) {
-			numeratorOne = fOne.substring(h + 1, j);
-			denominatorOne = fOne.substring(j + 1, i);
-		}
-		if (j == -1) {
-			wholeOne = fOne;
-		}
-		wnd += "whole:";
-		wnd += whole;
-		wnd += " numerator:";
-		wnd += numerator;
-		wnd += " denominator:";
-		wnd += denominator;
-    	return ;
-    }
+    
     public static String tester (String input) {
     // TODO: Implement this function to produce the solution to the input
     String fOne = "";
@@ -283,15 +287,21 @@ public class FracCalc {
 	int b = input.indexOf(" / ");
 	int c = input.indexOf(" + ");
 	int d = input.indexOf(" - ");
-	int e;
-	int f;
-	int g;
-	int h;
-	int i;
-	int j;
-	int k;
-	int l;
-	int m;
+	int e; // fTwo's "_" check
+	int f; // fTwo's "/" check
+	int g; // fTwo's length
+	int h; // fOne's "_" check
+	int i; // fOne's length
+	int j; // fOne's "/" check
+	int k; // Not used yet
+	int l; // Not used yet
+	int m; // Not used yet
+	int w1 = 0;
+	int n1 = 0;
+	int d1 = 1;
+	int w2 = 0;
+	int n2 = 0;
+	int d2 = 1;
 	String wnd = "";
 	String whole = "0";
 	String wholeOne = "0";
@@ -300,6 +310,8 @@ public class FracCalc {
 	String denominator = "1";
 	String denominatorOne = "1";
 	String sum = "";
+	String product = "";
+	String quotient
 
 	if (a != -1) {
 		//System.out.println("This has run");
@@ -335,6 +347,14 @@ public class FracCalc {
 		if (j == -1) {
 			wholeOne = fOne;
 		}
+		w1 = Integer.parseInt(wholeOne);
+		n1 = Integer.parseInt(numeratorOne);
+		d1 = Integer.parseInt(denominatorOne);
+		
+		w2 = Integer.parseInt(whole);
+		n2 = Integer.parseInt(numerator);
+		d2 = Integer.parseInt(denominator);
+		
 		wnd += "whole:";
 		wnd += whole;
 		wnd += " numerator:";
