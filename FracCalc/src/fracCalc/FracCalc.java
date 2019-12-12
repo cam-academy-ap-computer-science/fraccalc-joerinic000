@@ -44,20 +44,30 @@ public class FracCalc {
     //      e.g. return ==> "1_1/4"
     public static String produceAnswer(String input) { 
         // TODO: Implement this function to produce the solution to the input
-	    String fOne = "";
-	    String fTwo = "";
-		int a = input.indexOf(" * ");
-		int b = input.indexOf(" / ");
-		int c = input.indexOf(" + ");
-		int d = input.indexOf(" - ");
-		int e;
-		int f;
-		int g;
-		String wnd = "";
-		String whole = "0";
-		String numerator = "0";
-		String denominator = "1";
-		String sum = "";
+    	String fOne = "";
+        String fTwo = "";
+    	int a = input.indexOf(" * ");
+    	int b = input.indexOf(" / ");
+    	int c = input.indexOf(" + ");
+    	int d = input.indexOf(" - ");
+    	int e;
+    	int f;
+    	int g;
+    	int h;
+    	int i;
+    	int j;
+    	int k;
+    	int l;
+    	int m;
+    	String wnd = "";
+    	String whole = "0";
+    	String wholeOne = "0";
+    	String numerator = "0";
+    	String numeratorOne = "0";
+    	String denominator = "1";
+    	String denominatorOne = "1";
+    	String sum = "";
+
 
 		if (a != -1) {
 			//System.out.println("This has run");
@@ -78,6 +88,19 @@ public class FracCalc {
 			}
 			if (f == -1) {
 				whole = fTwo;
+			}
+			h = fOne.indexOf("_");
+			if (h != -1) {
+				wholeOne = fOne.substring(0, e);
+			}
+			i = fOne.length();
+			j = fOne.indexOf("/");
+			if (j != -1) {
+				numeratorOne = fOne.substring(h + 1, j);
+				denominatorOne = fOne.substring(j + 1, i);
+			}
+			if (j == -1) {
+				wholeOne = fOne;
 			}
 			wnd += "whole:";
 			wnd += whole;
@@ -107,6 +130,19 @@ public class FracCalc {
 			if (f == -1) {
 				whole = fTwo;
 			}
+			h = fOne.indexOf("_");
+			if (h != -1) {
+				wholeOne = fOne.substring(0, e);
+			}
+			i = fOne.length();
+			j = fOne.indexOf("/");
+			if (j != -1) {
+				numeratorOne = fOne.substring(h + 1, j);
+				denominatorOne = fOne.substring(j + 1, i);
+			}
+			if (j == -1) {
+				wholeOne = fOne;
+			}
 			wnd += "whole:";
 			wnd += whole;
 			wnd += " numerator:";
@@ -135,6 +171,19 @@ public class FracCalc {
 			if (f == -1) {
 				whole = fTwo;
 			}
+			h = fOne.indexOf("_");
+			if (h != -1) {
+				wholeOne = fOne.substring(0, e);
+			}
+			i = fOne.length();
+			j = fOne.indexOf("/");
+			if (j != -1) {
+				numeratorOne = fOne.substring(h + 1, j);
+				denominatorOne = fOne.substring(j + 1, i);
+			}
+			if (j == -1) {
+				wholeOne = fOne;
+			}
 			wnd += "whole:";
 			wnd += whole;
 			wnd += " numerator:";
@@ -162,6 +211,19 @@ public class FracCalc {
 			}
 			if (f == -1) {
 				whole = fTwo;
+			}
+			h = fOne.indexOf("_");
+			if (h != -1) {
+				wholeOne = fOne.substring(0, e);
+			}
+			i = fOne.length();
+			j = fOne.indexOf("/");
+			if (j != -1) {
+				numeratorOne = fOne.substring(h + 1, j);
+				denominatorOne = fOne.substring(j + 1, i);
+			}
+			if (j == -1) {
+				wholeOne = fOne;
 			}
 			wnd += "whole:";
 			wnd += whole;
@@ -192,6 +254,19 @@ public class FracCalc {
 		if (f == -1) {
 			whole = fOne;
 		}
+		h = fOne.indexOf("_");
+		if (h != -1) {
+			wholeOne = fOne.substring(0, e);
+		}
+		i = fOne.length();
+		j = fOne.indexOf("/");
+		if (j != -1) {
+			numeratorOne = fOne.substring(h + 1, j);
+			denominatorOne = fOne.substring(j + 1, i);
+		}
+		if (j == -1) {
+			wholeOne = fOne;
+		}
 		wnd += "whole:";
 		wnd += whole;
 		wnd += " numerator:";
@@ -211,10 +286,19 @@ public class FracCalc {
 	int e;
 	int f;
 	int g;
+	int h;
+	int i;
+	int j;
+	int k;
+	int l;
+	int m;
 	String wnd = "";
 	String whole = "0";
+	String wholeOne = "0";
 	String numerator = "0";
+	String numeratorOne = "0";
 	String denominator = "1";
+	String denominatorOne = "1";
 	String sum = "";
 
 	if (a != -1) {
@@ -236,6 +320,20 @@ public class FracCalc {
 		}
 		if (f == -1) {
 			whole = fTwo;
+		}
+		
+		h = fOne.indexOf("_");
+		if (h != -1) {
+			wholeOne = fOne.substring(0, e);
+		}
+		i = fOne.length();
+		j = fOne.indexOf("/");
+		if (j != -1) {
+			numeratorOne = fOne.substring(h + 1, j);
+			denominatorOne = fOne.substring(j + 1, i);
+		}
+		if (j == -1) {
+			wholeOne = fOne;
 		}
 		wnd += "whole:";
 		wnd += whole;
