@@ -20,14 +20,16 @@ public class FracCalc {
     public static void main(String[] args) {
         // TODO: Read the input from the user and call produceAnswer with an equation
     		Scanner userInput = new Scanner(System.in);
-    		System.out.println("Only type words in lower case.");
+    		String answer;
     		String s = "";
     		String quit = "quit";
+    		System.out.println("Only type words in lower case.");
     		while (!(s.equals(quit))) {
     			System.out.print("What is your equation? ");
     			s = userInput.next();
     			if (!(s.toLowerCase().equals(quit))) {
-    				tester(s);
+    				answer = tester(s);
+    				System.out.println("Answer: " + answer);
     			}
 
     		}
@@ -311,7 +313,7 @@ public class FracCalc {
 	String denominatorOne = "1";
 	String sum = "";
 	String product = "";
-	String quotient
+	String quotient;
 
 	if (a != -1) {
 		//System.out.println("This has run");
@@ -449,7 +451,7 @@ public class FracCalc {
 	}
 	
 	else {
-		System.out.println("None ran");
+		wnd = "None Ran";
 	}
 return wnd;
 }
