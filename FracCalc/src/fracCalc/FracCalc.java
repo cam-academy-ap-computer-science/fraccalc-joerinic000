@@ -285,10 +285,10 @@ public class FracCalc {
     // TODO: Implement this function to produce the solution to the input
     String fOne = "";
     String fTwo = "";
-	int a = input.indexOf(" * ");
-	int b = input.indexOf(" / ");
-	int c = input.indexOf(" + ");
-	int d = input.indexOf(" - ");
+	int a = input.indexOf(" * "); // Multiplication check
+	int b = input.indexOf(" / "); // Division check
+	int c = input.indexOf(" + "); // Addition check
+	int d = input.indexOf(" - "); // Subtraction check
 	int e; // fTwo's "_" check
 	int f; // fTwo's "/" check
 	int g; // fTwo's length
@@ -298,12 +298,12 @@ public class FracCalc {
 	int k; // Not used yet
 	int l; // Not used yet
 	int m; // Not used yet
-	int w1 = 0;
-	int n1 = 0;
-	int d1 = 1;
-	int w2 = 0;
-	int n2 = 0;
-	int d2 = 1;
+	int w1 = 0; // Whole one
+	int n1 = 0; // Numerator one
+	int d1 = 1; // Denominator one
+	int w2 = 0; // Whole two
+	int n2 = 0; // Numerator two
+	int d2 = 1; // Denominator two
 	String wnd = "";
 	String whole = "0";
 	String wholeOne = "0";
