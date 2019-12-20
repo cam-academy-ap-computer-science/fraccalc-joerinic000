@@ -58,8 +58,8 @@ public class FracCalc {
     	int h; // fOne's "_" check
     	int i; // fOne's length
     	int j; // fOne's "/" check
-    	int k; // Not used yet
-    	int l; // Not used yet
+    	int frac1; // Fraction 1
+    	int frac2; // Fraction 2
     	int m; // Not used yet
     	int w1 = 0; // Whole one
     	int n1 = 0; // Numerator one
@@ -76,12 +76,8 @@ public class FracCalc {
     	String denominatorOne = "1";
     	String answer = "";
     	if (a != -1) { //Multiplication
-    		//System.out.println("This has run");
     		fOne = input.substring(0, a);
     		fTwo = input.substring(a + 3, input.length());
-    		//System.out.print(fOne);
-    		//System.out.print(fTwo);
-    		//System.out.println("This has completed");
     		e = fTwo.indexOf("_");
     		if (e != -1) {
     			whole = fTwo.substring(0, e);
@@ -98,7 +94,7 @@ public class FracCalc {
     		
     		h = fOne.indexOf("_");
     		if (h != -1) {
-    			wholeOne = fOne.substring(0, e);
+    			wholeOne = fOne.substring(0, h);
     		}
     		i = fOne.length();
     		j = fOne.indexOf("/");
@@ -117,23 +113,26 @@ public class FracCalc {
     		n2 = Integer.parseInt(numerator);
     		d2 = Integer.parseInt(denominator);
     		
-    		int temp = d1;
-    		d1 = d1 * d2;
-    		d2 = d2 * temp;
-    		temp = n1;
-    		n1 = n1 * n2;
-    		n2 = n2 * temp;
-    		w1 = w1 * w2;
-    		answer = w1 + "_" + n1 + "/" + d1;
+    		// Makes improper
+    		frac1 = (w1 * d1) + n1;
+    		frac2 = (w2 * d2) + n2;
+    		
+    		d1 *= d2;
+    		n1 = frac1 * frac2;
+    		w1 = n1 / d1;
+    		n1 = n1 % d1;
+    		
+    		if (n1 == 0) {
+    			answer = w1 + "";
+    		}
+    		else {
+    			answer = w1 + "_" + n1 + "/" + d1;
+    		}
     	}
     	
     	else if (b != -1) { //Division
-    		//System.out.println("This has run");
     		fOne = input.substring(0, b);
     		fTwo = input.substring(b + 3, input.length());
-    		//System.out.print(fOne);
-    		//System.out.print(fTwo);
-    		//System.out.println("This has completed");
     		e = fTwo.indexOf("_");
     		if (e != -1) {
     			whole = fTwo.substring(0, e);
@@ -147,7 +146,19 @@ public class FracCalc {
     		if (f == -1) {
     			whole = fTwo;
     		}
-    		
+    		h = fOne.indexOf("_");
+    		if (h != -1) {
+    			wholeOne = fOne.substring(0, h);
+    		}
+    		i = fOne.length();
+    		j = fOne.indexOf("/");
+    		if (j != -1) {
+    			numeratorOne = fOne.substring(h + 1, j);
+    			denominatorOne = fOne.substring(j + 1, i);
+    		}
+    		if (j == -1) {
+    			wholeOne = fOne;
+    		}
     		
     		w1 = Integer.parseInt(wholeOne);
     		n1 = Integer.parseInt(numeratorOne);
@@ -156,6 +167,10 @@ public class FracCalc {
     		w2 = Integer.parseInt(whole);
     		n2 = Integer.parseInt(numerator);
     		d2 = Integer.parseInt(denominator);
+    		
+    		//Makes improper
+    		frac1 = (w1 * d1) + n1;
+    		frac2 = (w2 * d2) + n2;
     		
     		//Flips second fraction
     		int temp = n2;
@@ -189,6 +204,20 @@ public class FracCalc {
     			whole = fTwo;
     		}
     		
+    		h = fOne.indexOf("_");
+    		if (h != -1) {
+    			wholeOne = fOne.substring(0, h);
+    		}
+    		i = fOne.length();
+    		j = fOne.indexOf("/");
+    		if (j != -1) {
+    			numeratorOne = fOne.substring(h + 1, j);
+    			denominatorOne = fOne.substring(j + 1, i);
+    		}
+    		if (j == -1) {
+    			wholeOne = fOne;
+    		}
+    		
     		w1 = Integer.parseInt(wholeOne);
     		n1 = Integer.parseInt(numeratorOne);
     		d1 = Integer.parseInt(denominatorOne);
@@ -204,8 +233,11 @@ public class FracCalc {
     			d2 = d2 * temp;
     			n2 = n2 * temp;
     		}
+    		
     		n1 += n2;
     		w1 += w2;
+    		w1 += (n1/d1);
+    		n1 = n1 % d1;
     		answer = w1 + "_" + n1 + "/" + d1;
     	}
     	
@@ -230,6 +262,20 @@ public class FracCalc {
     			whole = fTwo;
     		}
     		
+    		h = fOne.indexOf("_");
+    		if (h != -1) {
+    			wholeOne = fOne.substring(0, h);
+    		}
+    		i = fOne.length();
+    		j = fOne.indexOf("/");
+    		if (j != -1) {
+    			numeratorOne = fOne.substring(h + 1, j);
+    			denominatorOne = fOne.substring(j + 1, i);
+    		}
+    		if (j == -1) {
+    			wholeOne = fOne;
+    		}
+    		
     		w1 = Integer.parseInt(wholeOne);
     		n1 = Integer.parseInt(numeratorOne);
     		d1 = Integer.parseInt(denominatorOne);
@@ -247,6 +293,12 @@ public class FracCalc {
     		}
     		n1 -= n2;
     		w1 -= w2;
+    		if (n1 < 0) {
+    			int temp = n1;
+    			w1 -= 1;
+    			n1 = d1;
+    			n1 -= temp;
+    		}
     		answer = w1 + "_" + n1 + "/" + d1;
     	}
     	
