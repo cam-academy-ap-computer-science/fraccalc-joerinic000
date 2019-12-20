@@ -24,16 +24,16 @@ public class FracCalc {
     		String s = "";
     		String quit = "quit";
     		System.out.println("Only type words in lower case.");
+			System.out.print("What is your equation? ");
+    		s = userInput.nextLine();
     		while (!(s.equals(quit))) {
-    			System.out.print("What is your equation? ");
-    			s = userInput.next();
-    			if (!(s.toLowerCase().equals(quit))) {
     				answer = tester(s);
     				System.out.println("Answer: " + answer);
+    				System.out.print("What is your equation? ");
+        			s = userInput.nextLine();
     			}
 
     		}
-    }
 
     
     // ** IMPORTANT ** DO NOT DELETE THIS FUNCTION.  This function will be used to test your code
@@ -46,237 +46,214 @@ public class FracCalc {
     //      e.g. return ==> "1_1/4"
     public static String produceAnswer(String input) { 
         // TODO: Implement this function to produce the solution to the input
-    	String fOne = "";
+        String fOne = "";
         String fTwo = "";
-    	int a = input.indexOf(" * ");
-    	int b = input.indexOf(" / ");
-    	int c = input.indexOf(" + ");
-    	int d = input.indexOf(" - ");
-    	int e;
-    	int f;
-    	int g;
-    	int h;
-    	int i;
-    	int j;
-    	int k;
-    	int l;
-    	int m;
-    	int w1 = 0;
-    	int n1 = 0;
-    	int d1 = 1;
-    	int w2 = 0;
-    	int n2 = 0;
-    	int d2 = 1;
-    	String wnd = "";
+    	int a = input.indexOf(" * "); // Multiplication check
+    	int b = input.indexOf(" / "); // Division check
+    	int c = input.indexOf(" + "); // Addition check
+    	int d = input.indexOf(" - "); // Subtraction check
+    	int e; // fTwo's "_" check
+    	int f; // fTwo's "/" check
+    	int g; // fTwo's length
+    	int h; // fOne's "_" check
+    	int i; // fOne's length
+    	int j; // fOne's "/" check
+    	int k; // Not used yet
+    	int l; // Not used yet
+    	int m; // Not used yet
+    	int w1 = 0; // Whole one
+    	int n1 = 0; // Numerator one
+    	int d1 = 1; // Denominator one
+    	int w2 = 0; // Whole two
+    	int n2 = 0; // Numerator two
+    	int d2 = 1; // Denominator two
+    	String wnd = ""; // Whole, Numerator, Denominator
     	String whole = "0";
-    	String wholeOne = "0";
     	String numerator = "0";
+    	String wholeOne = "0";
     	String numeratorOne = "0";
     	String denominator = "1";
     	String denominatorOne = "1";
-    	String sum = "";
-
-
-		if (a != -1) {
-			//System.out.println("This has run");
-			fOne = input.substring(0, a);
-			fTwo = input.substring(a + 3, input.length());
-			//System.out.print(fOne);
-			//System.out.print(fTwo);
-			//System.out.println("This has completed");
-			e = fTwo.indexOf("_");
-			if (e != -1) {
-				whole = fTwo.substring(0, e);
-			}
-			g = fTwo.length();
-			f = fTwo.indexOf("/");
-			if (f != -1) {
-				numerator = fTwo.substring(e + 1, f);
-				denominator = fTwo.substring(f + 1, g);
-			}
-			if (f == -1) {
-				whole = fTwo;
-			}
-			h = fOne.indexOf("_");
-			if (h != -1) {
-				wholeOne = fOne.substring(0, e);
-			}
-			i = fOne.length();
-			j = fOne.indexOf("/");
-			if (j != -1) {
-				numeratorOne = fOne.substring(h + 1, j);
-				denominatorOne = fOne.substring(j + 1, i);
-			}
-			if (j == -1) {
-				wholeOne = fOne;
-			}
-			w1 = Integer.parseInt(wholeOne);
-			n1 = Integer.parseInt(numeratorOne);
-			d1 = Integer.parseInt(denominatorOne);
-			
-			w2 = Integer.parseInt(whole);
-			n2 = Integer.parseInt(numerator);
-			d2 = Integer.parseInt(denominator);
-			
-			wnd += "whole:";
-			wnd += whole;
-			wnd += " numerator:";
-			wnd += numerator;
-			wnd += " denominator:";
-			wnd += denominator;
-		}
-		
-		else if (b != -1) {
-			//System.out.println("This has run");
-			fOne = input.substring(0, b);
-			fTwo = input.substring(b + 3, input.length());
-			//System.out.print(fOne);
-			//System.out.print(fTwo);
-			//System.out.println("This has completed");
-			e = fTwo.indexOf("_");
-			if (e != -1) {
-				whole = fTwo.substring(0, e);
-			}
-			g = fTwo.length();
-			f = fTwo.indexOf("/");
-			if (f != -1) {
-				numerator = fTwo.substring(e + 1, f);
-				denominator = fTwo.substring(f + 1, g);
-			}
-			if (f == -1) {
-				whole = fTwo;
-			}
-			h = fOne.indexOf("_");
-			if (h != -1) {
-				wholeOne = fOne.substring(0, e);
-			}
-			i = fOne.length();
-			j = fOne.indexOf("/");
-			if (j != -1) {
-				numeratorOne = fOne.substring(h + 1, j);
-				denominatorOne = fOne.substring(j + 1, i);
-			}
-			if (j == -1) {
-				wholeOne = fOne;
-			}
-			w1 = Integer.parseInt(wholeOne);
-			n1 = Integer.parseInt(numeratorOne);
-			d1 = Integer.parseInt(denominatorOne);
-			
-			w2 = Integer.parseInt(whole);
-			n2 = Integer.parseInt(numerator);
-			d2 = Integer.parseInt(denominator);
-			
-			wnd += "whole:";
-			wnd += whole;
-			wnd += " numerator:";
-			wnd += numerator;
-			wnd += " denominator:";
-			wnd += denominator;
-		}
-		
-		else if (c != -1) {
-			//System.out.println("This has run");
-			fOne = input.substring(0, c);
-			fTwo = input.substring(c + 3, input.length());
-			//System.out.print(fOne);
-			//System.out.print(fTwo);
-			//System.out.println("This has completed");
-			e = fTwo.indexOf("_");
-			if (e != -1) {
-				whole = fTwo.substring(0, e);
-			}
-			g = fTwo.length();
-			f = fTwo.indexOf("/");
-			if (f != -1) {
-				numerator = fTwo.substring(e + 1, f);
-				denominator = fTwo.substring(f + 1, g);
-			}
-			if (f == -1) {
-				whole = fTwo;
-			}
-			h = fOne.indexOf("_");
-			if (h != -1) {
-				wholeOne = fOne.substring(0, e);
-			}
-			i = fOne.length();
-			j = fOne.indexOf("/");
-			if (j != -1) {
-				numeratorOne = fOne.substring(h + 1, j);
-				denominatorOne = fOne.substring(j + 1, i);
-			}
-			if (j == -1) {
-				wholeOne = fOne;
-			}
-			w1 = Integer.parseInt(wholeOne);
-			n1 = Integer.parseInt(numeratorOne);
-			d1 = Integer.parseInt(denominatorOne);
-			
-			w2 = Integer.parseInt(whole);
-			n2 = Integer.parseInt(numerator);
-			d2 = Integer.parseInt(denominator);
-			
-			wnd += "whole:";
-			wnd += whole;
-			wnd += " numerator:";
-			wnd += numerator;
-			wnd += " denominator:";
-			wnd += denominator;
-		}
-		
-		else if (d != -1) {
-			//System.out.println("This has run");
-		    fOne = input.substring(0, d);
-			fTwo = input.substring(d + 3, input.length());
-			//System.out.print(fOne);
-			//System.out.print(fTwo);
-			//System.out.println("This has completed");
-			e = fTwo.indexOf("_");
-			if (e != -1) {
-				whole = fTwo.substring(0, e);
-			}
-			g = fTwo.length();
-			f = fTwo.indexOf("/");
-			if (f != -1) {
-				numerator = fTwo.substring(e + 1, f);
-				denominator = fTwo.substring(f + 1, g);
-			}
-			if (f == -1) {
-				whole = fTwo;
-			}
-			h = fOne.indexOf("_");
-			if (h != -1) {
-				wholeOne = fOne.substring(0, e);
-			}
-			i = fOne.length();
-			j = fOne.indexOf("/");
-			if (j != -1) {
-				numeratorOne = fOne.substring(h + 1, j);
-				denominatorOne = fOne.substring(j + 1, i);
-			}
-			if (j == -1) {
-				wholeOne = fOne;
-			}
-			w1 = Integer.parseInt(wholeOne);
-			n1 = Integer.parseInt(numeratorOne);
-			d1 = Integer.parseInt(denominatorOne);
-			
-			w2 = Integer.parseInt(whole);
-			n2 = Integer.parseInt(numerator);
-			d2 = Integer.parseInt(denominator);
-			
-			wnd += "whole:";
-			wnd += whole;
-			wnd += " numerator:";
-			wnd += numerator;
-			wnd += " denominator:";
-			wnd += denominator;
-		}
-		
-		else {
-			System.out.println("None ran");
-		}
-    return wnd;
+    	String answer = "";
+    	if (a != -1) { //Multiplication
+    		//System.out.println("This has run");
+    		fOne = input.substring(0, a);
+    		fTwo = input.substring(a + 3, input.length());
+    		//System.out.print(fOne);
+    		//System.out.print(fTwo);
+    		//System.out.println("This has completed");
+    		e = fTwo.indexOf("_");
+    		if (e != -1) {
+    			whole = fTwo.substring(0, e);
+    		}
+    		g = fTwo.length();
+    		f = fTwo.indexOf("/");
+    		if (f != -1) {
+    			numerator = fTwo.substring(e + 1, f);
+    			denominator = fTwo.substring(f + 1, g);
+    		}
+    		if (f == -1) {
+    			whole = fTwo;
+    		}
+    		
+    		h = fOne.indexOf("_");
+    		if (h != -1) {
+    			wholeOne = fOne.substring(0, e);
+    		}
+    		i = fOne.length();
+    		j = fOne.indexOf("/");
+    		if (j != -1) {
+    			numeratorOne = fOne.substring(h + 1, j);
+    			denominatorOne = fOne.substring(j + 1, i);
+    		}
+    		if (j == -1) {
+    			wholeOne = fOne;
+    		}
+    		w1 = Integer.parseInt(wholeOne);
+    		n1 = Integer.parseInt(numeratorOne);
+    		d1 = Integer.parseInt(denominatorOne);
+    		
+    		w2 = Integer.parseInt(whole);
+    		n2 = Integer.parseInt(numerator);
+    		d2 = Integer.parseInt(denominator);
+    		
+    		int temp = d1;
+    		d1 = d1 * d2;
+    		d2 = d2 * temp;
+    		temp = n1;
+    		n1 = n1 * n2;
+    		n2 = n2 * temp;
+    		w1 = w1 * w2;
+    		answer = w1 + "_" + n1 + "/" + d1;
+    	}
+    	
+    	else if (b != -1) { //Division
+    		//System.out.println("This has run");
+    		fOne = input.substring(0, b);
+    		fTwo = input.substring(b + 3, input.length());
+    		//System.out.print(fOne);
+    		//System.out.print(fTwo);
+    		//System.out.println("This has completed");
+    		e = fTwo.indexOf("_");
+    		if (e != -1) {
+    			whole = fTwo.substring(0, e);
+    		}
+    		g = fTwo.length();
+    		f = fTwo.indexOf("/");
+    		if (f != -1) {
+    			numerator = fTwo.substring(e + 1, f);
+    			denominator = fTwo.substring(f + 1, g);
+    		}
+    		if (f == -1) {
+    			whole = fTwo;
+    		}
+    		
+    		
+    		w1 = Integer.parseInt(wholeOne);
+    		n1 = Integer.parseInt(numeratorOne);
+    		d1 = Integer.parseInt(denominatorOne);
+    		
+    		w2 = Integer.parseInt(whole);
+    		n2 = Integer.parseInt(numerator);
+    		d2 = Integer.parseInt(denominator);
+    		
+    		//Flips second fraction
+    		int temp = n2;
+    		n2 = d2;
+    		d2 = temp;
+    		
+    		w1 *= w2;
+    		n1 *= n2;
+    		d1 *= d2;
+    		answer = w1 + "_" + n1 + "/" + d1;
+    	}
+    	
+    	else if (c != -1) { //Addition
+    		//System.out.println("This has run");
+    		fOne = input.substring(0, c);
+    		fTwo = input.substring(c + 3, input.length());
+    		//System.out.print(fOne);
+    		//System.out.print(fTwo);
+    		//System.out.println("This has completed");
+    		e = fTwo.indexOf("_");
+    		if (e != -1) {
+    			whole = fTwo.substring(0, e);
+    		}
+    		g = fTwo.length();
+    		f = fTwo.indexOf("/");
+    		if (f != -1) {
+    			numerator = fTwo.substring(e + 1, f);
+    			denominator = fTwo.substring(f + 1, g);
+    		}
+    		if (f == -1) {
+    			whole = fTwo;
+    		}
+    		
+    		w1 = Integer.parseInt(wholeOne);
+    		n1 = Integer.parseInt(numeratorOne);
+    		d1 = Integer.parseInt(denominatorOne);
+    		
+    		w2 = Integer.parseInt(whole);
+    		n2 = Integer.parseInt(numerator);
+    		d2 = Integer.parseInt(denominator);
+    		
+    		if (d1 != d2) {
+    			int temp = d1;
+    			d1 = d1 * d2;
+    			n1 = n1 * d2;
+    			d2 = d2 * temp;
+    			n2 = n2 * temp;
+    		}
+    		n1 += n2;
+    		w1 += w2;
+    		answer = w1 + "_" + n1 + "/" + d1;
+    	}
+    	
+    	else if (d != -1) { //Subtraction
+    		//System.out.println("This has run");
+    	    fOne = input.substring(0, d);
+    		fTwo = input.substring(d + 3, input.length());
+    		//System.out.print(fOne);
+    		//System.out.print(fTwo);
+    		//System.out.println("This has completed");
+    		e = fTwo.indexOf("_");
+    		if (e != -1) {
+    			whole = fTwo.substring(0, e);
+    		}
+    		g = fTwo.length();
+    		f = fTwo.indexOf("/");
+    		if (f != -1) {
+    			numerator = fTwo.substring(e + 1, f);
+    			denominator = fTwo.substring(f + 1, g);
+    		}
+    		if (f == -1) {
+    			whole = fTwo;
+    		}
+    		
+    		w1 = Integer.parseInt(wholeOne);
+    		n1 = Integer.parseInt(numeratorOne);
+    		d1 = Integer.parseInt(denominatorOne);
+    		
+    		w2 = Integer.parseInt(whole);
+    		n2 = Integer.parseInt(numerator);
+    		d2 = Integer.parseInt(denominator);
+    		
+    		if (d1 != d2) {
+    			int temp = d1;
+    			d1 = d1 * d2;
+    			n1 = n1 * d2;
+    			d2 = d2 * temp;
+    			n2 = n2 * temp;
+    		}
+    		n1 -= n2;
+    		w1 -= w2;
+    		answer = w1 + "_" + n1 + "/" + d1;
+    	}
+    	
+    	else {
+    		answer = "None Ran";
+    	}
+    return answer;
 }
 
     // TODO: Fill in the space below with any helper methods that you think you will need
@@ -304,17 +281,14 @@ public class FracCalc {
 	int w2 = 0; // Whole two
 	int n2 = 0; // Numerator two
 	int d2 = 1; // Denominator two
-	String wnd = "";
+	String wnd = ""; // Whole, Numerator, Denominator
 	String whole = "0";
-	String wholeOne = "0";
 	String numerator = "0";
+	String wholeOne = "0";
 	String numeratorOne = "0";
 	String denominator = "1";
 	String denominatorOne = "1";
-	String sum = "";
-	String product = "";
-	String quotient;
-
+	String answer = "";
 	if (a != -1) {
 		//System.out.println("This has run");
 		fOne = input.substring(0, a);
@@ -357,13 +331,14 @@ public class FracCalc {
 		n2 = Integer.parseInt(numerator);
 		d2 = Integer.parseInt(denominator);
 		
-		wnd += "whole:";
-		wnd += whole;
-		wnd += " numerator:";
-		wnd += numerator;
-		wnd += " denominator:";
-		wnd += denominator;
-		
+		int temp = d1;
+		d1 = d1 * d2;
+		d2 = d2 * temp;
+		temp = n1;
+		n1 = n1 * n2;
+		n2 = n2 * temp;
+		w1 = w1 * w2;
+		answer = w1 + "_" + n1 + "/" + d1;
 	}
 	
 	else if (b != -1) {
@@ -414,12 +389,25 @@ public class FracCalc {
 		if (f == -1) {
 			whole = fTwo;
 		}
-		wnd += "whole:";
-		wnd += whole;
-		wnd += " numerator:";
-		wnd += numerator;
-		wnd += " denominator:";
-		wnd += denominator;
+		
+		w1 = Integer.parseInt(wholeOne);
+		n1 = Integer.parseInt(numeratorOne);
+		d1 = Integer.parseInt(denominatorOne);
+		
+		w2 = Integer.parseInt(whole);
+		n2 = Integer.parseInt(numerator);
+		d2 = Integer.parseInt(denominator);
+		
+		if (d1 != d2) {
+			int temp = d1;
+			d1 = d1 * d2;
+			n1 = n1 * d2;
+			d2 = d2 * temp;
+			n2 = n2 * temp;
+		}
+		n1 += n2;
+		w1 += w2;
+		answer = w1 + "_" + n1 + "/" + d1;
 	}
 	
 	else if (d != -1) {
@@ -442,17 +430,30 @@ public class FracCalc {
 		if (f == -1) {
 			whole = fTwo;
 		}
-		wnd += "whole:";
-		wnd += whole;
-		wnd += " numerator:";
-		wnd += numerator;
-		wnd += " denominator:";
-		wnd += denominator;
+		
+		w1 = Integer.parseInt(wholeOne);
+		n1 = Integer.parseInt(numeratorOne);
+		d1 = Integer.parseInt(denominatorOne);
+		
+		w2 = Integer.parseInt(whole);
+		n2 = Integer.parseInt(numerator);
+		d2 = Integer.parseInt(denominator);
+		
+		if (d1 != d2) {
+			int temp = d1;
+			d1 = d1 * d2;
+			n1 = n1 * d2;
+			d2 = d2 * temp;
+			n2 = n2 * temp;
+		}
+		n1 -= n2;
+		w1 -= w2;
+		answer = w1 + "_" + n1 + "/" + d1;
 	}
 	
 	else {
-		wnd = "None Ran";
+		answer = "None Ran";
 	}
-return wnd;
+return answer;
 }
 }
