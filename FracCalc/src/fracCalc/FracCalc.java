@@ -23,10 +23,11 @@ public class FracCalc {
     		String answer;
     		String s = "";
     		String quit = "quit";
-    		System.out.println("Only type words in lower case.");
+    		System.out.println("This calculator will whole numbers, fractions, and mixed numbers and output the answer.");
+    		System.out.println("Please use the format: Whole Number_Numerator/Denominator (Operator) Whole Number_Numerator/Denominator.");
 			System.out.print("What is your equation? ");
     		s = userInput.nextLine();
-    		while (!(s.equals(quit))) {
+    		while (!(s.toLowerCase().equals(quit))) {
     				answer = produceAnswer(s);
     				System.out.println("Answer: " + answer);
     				System.out.print("What is your equation? ");
@@ -77,6 +78,7 @@ public class FracCalc {
     	String answer = "";
     	
     	if (a != -1) { //Multiplication
+    		//String separation
     		fOne = input.substring(0, a);
     		fTwo = input.substring(a + 3, input.length());
     		e = fTwo.indexOf("_");
@@ -106,6 +108,7 @@ public class FracCalc {
     		if (j == -1) {
     			wholeOne = fOne;
     		}
+    		//Strings to Ints
     		w1 = Integer.parseInt(wholeOne);
     		n1 = Integer.parseInt(numeratorOne);
     		d1 = Integer.parseInt(denominatorOne);
@@ -113,7 +116,7 @@ public class FracCalc {
     		w2 = Integer.parseInt(whole);
     		n2 = Integer.parseInt(numerator);
     		d2 = Integer.parseInt(denominator);
-    		
+    		//Negative distribution
     		if (w1 < 0) { 
     			n1 *= -1;
     		}
@@ -125,23 +128,23 @@ public class FracCalc {
     		// Makes improper
     		frac1 = (w1 * d1) + n1;
     		frac2 = (w2 * d2) + n2;
-    		
+    		//Multipication
     		d1 *= d2;
     		n1 = frac1 * frac2;
     		w1 = n1 / d1;
     		n1 = n1 % d1;
-    		
+    		//Negative distribution
     		if (w1 < 0 && n1 < 0) {
     			n1 *= -1;
     		}
-    		
+    		//Mixed Fraction Simplification
     		if (n1 > d1 || n1 == d1) {
     			while(n1 > d1) {
     				n1 -= d1;
     				w1++;
     			}
     		}
-    		
+    		//Answer Formating
     		if (n1 == 0) {
     			answer = w1 + "";
     		}
@@ -157,6 +160,7 @@ public class FracCalc {
     		if (e != -1) {
     			whole = fTwo.substring(0, e);
     		}
+    		//String Separation
     		g = fTwo.length();
     		f = fTwo.indexOf("/");
     		if (f != -1) {
@@ -187,7 +191,7 @@ public class FracCalc {
     		w2 = Integer.parseInt(whole);
     		n2 = Integer.parseInt(numerator);
     		d2 = Integer.parseInt(denominator);
-    		
+    		//Negative distribution
     		if (w1 < 0) { 
     			n1 *= -1;
     		}
@@ -206,7 +210,7 @@ public class FracCalc {
     		d2 = temp;
     		
     		w1 = 0;
-    		
+    		//Multiplication
     		w1 *= w2;
     		n1 *= n2;
     		d1 *= d2;
@@ -225,7 +229,7 @@ public class FracCalc {
     				w1++;
     			}
     		}
-    		
+    		//Formatting answers
     		if (n1 == 0) {
     			answer = w1 + "";
     		}
@@ -235,16 +239,13 @@ public class FracCalc {
     		}
     	
     	else if (c != -1) { //Addition
-    		//System.out.println("This has run");
     		fOne = input.substring(0, c);
     		fTwo = input.substring(c + 3, input.length());
-    		//System.out.print(fOne);
-    		//System.out.print(fTwo);
-    		//System.out.println("This has completed");
     		e = fTwo.indexOf("_");
     		if (e != -1) {
     			whole = fTwo.substring(0, e);
     		}
+    		//String Separation
     		g = fTwo.length();
     		f = fTwo.indexOf("/");
     		if (f != -1) {
@@ -268,7 +269,7 @@ public class FracCalc {
     		if (j == -1) {
     			wholeOne = fOne;
     		}
-    		
+    		//Strings to Ints
     		w1 = Integer.parseInt(wholeOne);
     		n1 = Integer.parseInt(numeratorOne);
     		d1 = Integer.parseInt(denominatorOne);
@@ -276,7 +277,7 @@ public class FracCalc {
     		w2 = Integer.parseInt(whole);
     		n2 = Integer.parseInt(numerator);
     		d2 = Integer.parseInt(denominator);
-    		
+    		//Negative distribution
     		if (w1 < 0) { 
     			n1 *= -1;
     		}
@@ -284,7 +285,7 @@ public class FracCalc {
     		if (w2 < 0) { 
     			n2 *= -1;
     		}
-    		
+    		//LCD calculation
     		if (d1 != d2) {
     			int temp = d1;
     			d1 = d1 * d2;
@@ -292,7 +293,7 @@ public class FracCalc {
     			d2 = d2 * temp;
     			n2 = n2 * temp;
     		}
-    		
+    		//Addition
     		n1 += n2;
     		w1 += w2;
     		w1 += (n1/d1);
@@ -301,14 +302,14 @@ public class FracCalc {
     		if (w1 < 0 && n1 < 0) {
     			n1 *= -1;
     		}
-    		
+    		//Keeping Mixed Numbers
     		if (n1 > d1 || n1 == d1) {
     			while(n1 > d1) {
     				n1 -= d1;
     				w1++;
     			}
     		}
-    		
+    		//Answer formating
     		if (n1 == 0) {
     			answer = w1 + "";
     		}
@@ -318,16 +319,13 @@ public class FracCalc {
     		}
     	
     	else if (d != -1) { //Subtraction
-    		//System.out.println("This has run");
     	    fOne = input.substring(0, d);
     		fTwo = input.substring(d + 3, input.length());
-    		//System.out.print(fOne);
-    		//System.out.print(fTwo);
-    		//System.out.println("This has completed");
     		e = fTwo.indexOf("_");
     		if (e != -1) {
     			whole = fTwo.substring(0, e);
     		}
+    		//String Separation
     		g = fTwo.length();
     		f = fTwo.indexOf("/");
     		if (f != -1) {
@@ -351,7 +349,7 @@ public class FracCalc {
     		if (j == -1) {
     			wholeOne = fOne;
     		}
-    		
+    		//String to Ints
     		w1 = Integer.parseInt(wholeOne);
     		n1 = Integer.parseInt(numeratorOne);
     		d1 = Integer.parseInt(denominatorOne);
@@ -359,7 +357,7 @@ public class FracCalc {
     		w2 = Integer.parseInt(whole);
     		n2 = Integer.parseInt(numerator);
     		d2 = Integer.parseInt(denominator);
-    		
+    		//Negative distribution
     		if (w1 < 0) { 
     			n1 *= -1;
     		}
@@ -367,7 +365,7 @@ public class FracCalc {
     		if (w2 < 0) { 
     			n2 *= -1;
     		}
-    		
+    		//LCD calculation
     		if (d1 != d2) {
     			int temp = d1;
     			d1 = d1 * d2;
@@ -375,6 +373,7 @@ public class FracCalc {
     			d2 = d2 * temp;
     			n2 = n2 * temp;
     		}
+    		//Subtraction
     		n1 -= n2;
     		w1 -= w2;
     		if (n1 < 0) {
@@ -383,18 +382,18 @@ public class FracCalc {
     			n1 = d1;
     			n1 -= temp;
     		}
-    		
+    		//Negative formating
     		if (w1 < 0 && n1 < 0) {
     			n1 *= -1;
     		}
-    		
+    		//Mixed Fraction Simplification
     		if (n1 > d1 || n1 == d1) {
     			while(n1 > d1) {
     				n1 -= d1;
     				w1++;
     			}
     		}
-    		
+    		//Answer formating
     		if (n1 == 0) {
     			answer = w1 + "";
     		}
