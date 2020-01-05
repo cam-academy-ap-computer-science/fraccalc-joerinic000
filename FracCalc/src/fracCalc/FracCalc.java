@@ -1,4 +1,4 @@
-// In the end, it will all be in a while loop
+ // In the end, it will all be in a while loop
 // Takes the input of one string
 // Checks if a string == quit
 // Calls produceAnswer and inputs the string
@@ -179,7 +179,7 @@ public class FracCalc {
     		if (j == -1) {
     			wholeOne = fOne;
     		}
-    		
+    		//Converts strings into ints
     		w1 = Integer.parseInt(wholeOne);
     		n1 = Integer.parseInt(numeratorOne);
     		d1 = Integer.parseInt(denominatorOne);
@@ -194,16 +194,18 @@ public class FracCalc {
     		
     		if (w2 < 0) { 
     			n2 *= -1;
-    		}
+    		} 
     		
     		//Makes improper
-    		frac1 = (w1 * d1) + n1;
-    		frac2 = (w2 * d2) + n2;
+    		n1 = (w1 * d1) + n1;
+    		n2 = (w2 * d2) + n2;
     		
     		//Flips second fraction
     		int temp = n2;
     		n2 = d2;
     		d2 = temp;
+    		
+    		w1 = 0;
     		
     		w1 *= w2;
     		n1 *= n2;
