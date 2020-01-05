@@ -75,6 +75,7 @@ public class FracCalc {
     	String denominator = "1";
     	String denominatorOne = "1";
     	String answer = "";
+    	
     	if (a != -1) { //Multiplication
     		fOne = input.substring(0, a);
     		fTwo = input.substring(a + 3, input.length());
@@ -132,6 +133,13 @@ public class FracCalc {
     		
     		if (w1 < 0 && n1 < 0) {
     			n1 *= -1;
+    		}
+    		
+    		if (n1 > d1 || n1 == d1) {
+    			while(n1 > d1) {
+    				n1 -= d1;
+    				w1++;
+    			}
     		}
     		
     		if (n1 == 0) {
@@ -203,6 +211,17 @@ public class FracCalc {
     		
     		if (w1 < 0 && n1 < 0) {
     			n1 *= -1;
+    		}
+    		if (n1 < 0 && d1 < 0) {
+    			d1 *= -1;
+    			n1 *= -1;
+    		}
+    		
+    		if (n1 > d1 || n1 == d1) {
+    			while(n1 > d1) {
+    				n1 -= d1;
+    				w1++;
+    			}
     		}
     		
     		if (n1 == 0) {
@@ -279,6 +298,13 @@ public class FracCalc {
     		
     		if (w1 < 0 && n1 < 0) {
     			n1 *= -1;
+    		}
+    		
+    		if (n1 > d1 || n1 == d1) {
+    			while(n1 > d1) {
+    				n1 -= d1;
+    				w1++;
+    			}
     		}
     		
     		if (n1 == 0) {
@@ -358,6 +384,13 @@ public class FracCalc {
     		
     		if (w1 < 0 && n1 < 0) {
     			n1 *= -1;
+    		}
+    		
+    		if (n1 > d1 || n1 == d1) {
+    			while(n1 > d1) {
+    				n1 -= d1;
+    				w1++;
+    			}
     		}
     		
     		if (n1 == 0) {
