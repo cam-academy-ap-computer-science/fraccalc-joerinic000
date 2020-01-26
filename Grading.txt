@@ -1,15 +1,10 @@
+Total Grade:  95/115
 
-REQUIREMENT	  POINTS
-Input Parsing	15
-Addition & Subtraction	20
-Multiplication & Division	20
-Fraction Reduction	15
-Output is a Mixed Fraction	15
-Handles Mixed Fractions	10
-Handles Negatives	15
-Checkpoints	35
-Code Comments	5
-Extra: Error Handling 4. Note: I entered 1 ++ 2 and the program didn't crash.
-TOTAL	154/150 points
-
-Suggestions: Having a variable name that explains what the variable is doing is important and better than commented what a variable is doing.
+Input Parsing: 15/15
+Addition & Subtraction: 20/20
+Multiplication & Division: 20/20
+Fraction Reduction: 10/15
+Output is a Mixed Fraction: 10/15
+Handles Mixed Fractions: 10/10
+Handles Negatives: 5/15
+Code Comments: 5/5
