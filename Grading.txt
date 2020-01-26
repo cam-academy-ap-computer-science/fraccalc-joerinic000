@@ -4,7 +4,14 @@ Input Parsing: 15/15
 Addition & Subtraction: 20/20
 Multiplication & Division: 20/20
 Fraction Reduction: 10/15
-Output is a Mixed Fraction: 10/15
+Output is a Mixed Fraction: 5/15
 Handles Mixed Fractions: 10/10
-Handles Negatives: 5/15
+Handles Negatives: 10/15
 Code Comments: 5/5
+
+You passed Checkpoint 3 perfectly, so your calculations were all correct, so you
+get perfect marks on Addition, Subtraction, Multiplication, and Division.
+However, you did not present your results correctly in many cases.  For example,
+the simple 1 / 2 returns 0_1/2, when it should return simply 1/2.  There are
+many examples like that, which is why a large number of the Final tests failed.
+The calculations were correct, but the final display was incorrect.
